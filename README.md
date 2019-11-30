@@ -34,3 +34,7 @@ After checking out repository, open folder in terminal and execute following com
     - Lib to work with traditional css styles;
 - `prettier / eslint`:
     - Code style;
+
+## Working with a huge amount of data
+
+Generally when we need to work with a huge amount of data, we prepare the backend to support pagination. The react-native `Flatlist` provide methods to handle events like on end reached. So when the user scroll to the end of list, another request can be sent to bring more data.
