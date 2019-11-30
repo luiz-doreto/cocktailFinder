@@ -1,6 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 
+import logo from '../../../assets/cocktail.png';
 import {
     Container,
     Img,
@@ -11,9 +13,12 @@ import {
     LogoTitleMain,
     LogoTitleSecondary,
 } from './styles';
-import logo from '../../../assets/cocktail.png';
 
-export default function Main() {
+export default function Main({ navigation }) {
+    function handlePress() {
+        navigation.navigate('List');
+    }
+
     return (
         <Container
             start={{ x: 1.0, y: 0.0 }}
@@ -26,11 +31,18 @@ export default function Main() {
                 <LogoTitleMain>Cocktail</LogoTitleMain>
                 <LogoTitleSecondary>Finder</LogoTitleSecondary>
             </LogoTitle>
-            <Button>
+            <Button onPress={handlePress}>
                 <ButtonContent>
+                    <Icon name="search" color="#ff4000" size={30} />
                     <ButtonText>Search your favorite cocktail</ButtonText>
                 </ButtonContent>
             </Button>
         </Container>
     );
 }
+
+Main.propTypes = {
+    navigation: PropTypes.shape({
+        navigate: PropTypes.func,
+    }).isRequired,
+};
